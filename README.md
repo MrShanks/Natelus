@@ -3,11 +3,11 @@
 Once upon a time there was a great hero, called Natelus, with some strengths and weaknesses, as all
 heroes have. After battling all kinds of monsters for more than a hundred years, Natelus now has the
 following stats:
-• Health : 70 - 100
-• Strenght: 70 - 80
-• Defence: 45 - 55
-• Speed: 40 - 50
-• Luck 10% - 30% ( 0% means no luck, 100% lucky all the time)
+- Health : 70 - 100
+- Strenght: 70 - 80
+- Defence: 45 - 55
+- Speed: 40 - 50
+- Luck 10% - 30% ( 0% means no luck, 100% lucky all the time)
 Also, he possesses 2 skills:
 Rapid strike: Strike twice while it's his turn to attack, there's a 10% he'll use this skill every time he
 attacks
@@ -19,11 +19,11 @@ use this skill every time he defends.
 
 As Natelus walks through a magical ever-green forest of the game, he encounters some wild beasts,
 with the following properties:
-• Health: 60 - 90
-• Strenght: 60 - 90
-• Defence: 40 - 60
-• Speed: 40 - 60
-• Luck: 25% - 40%
+- Health: 60 - 90
+- Strenght: 60 - 90
+- Defence: 40 - 60
+- Speed: 40 - 60
+- Luck: 25% - 40%
 You'll have to simulate a battle between Natelus and a wild beast, either at command line or using a
 web browser. On every battle, Natelus and the beast must be initialized with random properties,
 within their ranges.
@@ -41,18 +41,18 @@ Natelus's skill occurs randomly, based on their chances, so take them into accou
 
 The game ends when one of the players remain without health or the number of turns reaches 20.
 The application must output the results each turn:
-• what happens?
-• which skills were used (if any)?
-• the damage done
-• defender's health left
+- what happens?
+- which skills were used (if any)?
+- the damage done
+- defender's health left
 If we have a winner before the maximum number of rounds is reached, he must be declared.
 
 
 # Rules
 
 For this magical forest to be fair and work, you'll have to follow these rules:
-• Write code in plain language of choice, preferably Python, Go or Java, whiteout any
+- Write code in plain language of choice, preferably Python, Go or Java, whiteout any
 frameworks (you are free to use 3rd parties for testing, or UI libs/frameworks)
-• Make sure your application is decoupled, code reusable and scalable. For example, can a
+- Make sure your application is decoupled, code reusable and scalable. For example, can a
 new skill easily be added to our hero?
-• Is your code bug-free and tested?
+- Is your code bug-free and tested?
