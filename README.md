@@ -8,6 +8,7 @@ following stats:
 - Defence: 45 - 55
 - Speed: 40 - 50
 - Luck 10% - 30% ( 0% means no luck, 100% lucky all the time)
+
 Also, he possesses 2 skills:
 Rapid strike: Strike twice while it's his turn to attack, there's a 10% he'll use this skill every time he
 attacks
@@ -24,6 +25,7 @@ with the following properties:
 - Defence: 40 - 60
 - Speed: 40 - 60
 - Luck: 25% - 40%
+
 You'll have to simulate a battle between Natelus and a wild beast, either at command line or using a
 web browser. On every battle, Natelus and the beast must be initialized with random properties,
 within their ranges.
@@ -45,12 +47,14 @@ The application must output the results each turn:
 - which skills were used (if any)?
 - the damage done
 - defender's health left
+
 If we have a winner before the maximum number of rounds is reached, he must be declared.
 
 
 # Rules
 
 For this magical forest to be fair and work, you'll have to follow these rules:
+
 - Write code in plain language of choice, preferably Python, Go or Java, whiteout any
 frameworks (you are free to use 3rd parties for testing, or UI libs/frameworks)
 - Make sure your application is decoupled, code reusable and scalable. For example, can a
