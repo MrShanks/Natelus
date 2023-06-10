@@ -3,26 +3,59 @@ package model
 import "testing"
 
 func TestHero_MagicShield(t *testing.T) {
-	hero := Hero{
-		Stats{
-			Name:     "Test",
-			Health:   100,
-			Strenght: 80,
-			Defence:  60,
-			Speed:    30,
-			Luck:     15,
-		},
+	hero := NewHero()
+
+	testCases := []struct {
+		name           string
+		damage         int
+		expectedDamage int
+		luck           bool
+	}{
+		{"Damage 10 with MagicShield ability should only deal 5 damage", 10, 5, true},
+		{"Damage 1 with MagicShield ability should only deal 0 damage", 1, 0, true},
+		{"Damage 0 with MagicShield ability should deal 0 damage", 0, 0, true},
+		{"Damage 10 without MagicShield ability should deal 10 damage", 10, 10, false},
+		{"Damage 1 without MagicShield ability should only deal 1 damage", 1, 1, false},
+		{"Damage 0 without MagicShield ability should deal 0 damage", 0, 0, false},
 	}
 
-	damage := 10
-	expectedDamage := damage / 2
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			GotLucky = func(chances int) bool {
+				return tc.luck
+			}
+			actualDamage := hero.MagicShield(tc.damage)
+			if actualDamage != tc.expectedDamage {
+				t.Errorf("Got: %d, Expected: %d", actualDamage, tc.expectedDamage)
+			}
+		})
+	}
+}
 
-	GotLucky = func(chances int) bool {
-		return true
+func TestHero_RapidStrike(t *testing.T) {
+	hero := NewHero()
+
+	testCases := []struct {
+		name           string
+		damage         int
+		expectedDamage int
+		luck           bool
+	}{
+		{"Damage 10 with RapidStrike ability should deal 20 damage", 10, 20, true},
+		{"Damage 0 with RapidStrike ability should deal 0 damage", 0, 0, true},
+		{"Damage 10 without RapidStrike ability should deal 10 damage", 10, 10, false},
+		{"Damage 0 without RapidStrike ability should deal 0 damage", 0, 0, false},
 	}
 
-	actualDamage := hero.MagicShield(damage)
-	if actualDamage != expectedDamage {
-		t.Errorf("MagicShield did not return the expected damage, Expected: %d, Got: %d", expectedDamage, actualDamage)
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			GotLucky = func(chances int) bool {
+				return tc.luck
+			}
+			actualDamage := hero.RapidStrike(tc.damage)
+			if actualDamage != tc.expectedDamage {
+				t.Errorf("Got: %d, Expected: %d", actualDamage, tc.expectedDamage)
+			}
+		})
 	}
 }

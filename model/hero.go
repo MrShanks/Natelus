@@ -9,7 +9,7 @@ type Hero struct {
 }
 
 func NewHero() Hero {
-	hero := Hero{*WithStats(
+	return Hero{*WithStats(
 		Name("Natelus"),
 		Health(70, 100),
 		Strength(79, 80),
@@ -17,16 +17,13 @@ func NewHero() Hero {
 		Speed(40, 50),
 		Luck(10, 30),
 	)}
-	return hero
 }
 
 func (h *Hero) Attack(defenceStat int) int {
-	var damage int
-	if defenceStat < h.Strenght {
-		damage = h.Strenght - defenceStat
-	} else {
-		damage = 0
+	if defenceStat >= h.Strenght {
+		return 0
 	}
+	damage := h.Strenght - defenceStat
 	damage = h.RapidStrike(damage)
 	return damage
 }
