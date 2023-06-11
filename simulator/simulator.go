@@ -32,20 +32,20 @@ func Battle(attacker, defender model.Character) {
 
 		fmt.Printf("Round %d: ", i)
 
-		// Attacking
+		// Calculate the attack damage attacker strength - defencer defence
 		fmt.Printf("%s Attacks\n", attacker.GetName())
 		damage := attacker.Attack(defender.GetDefence())
 
-		// Defending
+		// Roll the dice to determine if the defender is lucky and dodges the attack
 		if model.GotLucky(defender.GetLuck()) {
 			damage = 0
 			fmt.Printf("%s got lucky, they dodged the attack ", defender.GetName())
-		} else {
-			damage = defender.Defend(damage)
 		}
 
-		fmt.Printf("%d damage were dealt\n", damage)
+		// Defender can have special abilities to limit the damages
+		actualDamage := defender.Defend(damage)
 
+		fmt.Printf("%d damage were dealt\n", actualDamage)
 		fmt.Printf("%s, has now: %d HP\n\n", defender.GetName(), defender.GetHealth())
 
 		attacker, defender = Swap(attacker, defender)

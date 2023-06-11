@@ -4,6 +4,17 @@ type Beast struct {
 	Stats
 }
 
+func NewBeast() Beast {
+	return Beast{*WithStats(
+		Name("Boar"),
+		Health(60, 90),
+		Strength(60, 90),
+		Defence(40, 60),
+		Speed(40, 60),
+		Luck(25, 40),
+	)}
+}
+
 func (b *Beast) Attack(defenceStat int) int {
 	var damage int
 	if defenceStat >= b.Strenght {
@@ -20,15 +31,4 @@ func (b *Beast) Defend(damage int) int {
 		b.Health = 0
 	}
 	return damage
-}
-
-func NewBeast() Beast {
-	return Beast{*WithStats(
-		Name("Boar"),
-		Health(60, 90),
-		Strength(60, 90),
-		Defence(40, 60),
-		Speed(40, 60),
-		Luck(25, 40),
-	)}
 }
