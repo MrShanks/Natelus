@@ -2,6 +2,7 @@ package simulator
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/MrShanks/natelus/model"
 )
@@ -25,6 +26,7 @@ func Battle(attacker, defender model.Character) {
 	attacker, defender = DetermineFirstAttacker(attacker, defender)
 
 	for i := 1; i <= Rounds; i++ {
+		time.Sleep(2000 * time.Millisecond)
 		// Check if someone died
 		if attacker.GetHealth() <= 0 || defender.GetHealth() <= 0 {
 			break
