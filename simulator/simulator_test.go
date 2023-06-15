@@ -20,8 +20,8 @@ func TestSimulator_DetermineFirstAttacker(t *testing.T) {
 	}{
 		{"Player1 should be the first to attack with speed higher than player 2, luck should be ignored", 10, 9, 0, 0, "Natelus"},
 		{"Player2 should be the first to attack with speed higher than player 1, luck should be ignored", 9, 10, 0, 0, "Boar"},
-		{"Player1 should be the first to attack with speed higher than player 2, luck should be ignored", 0, 0, 10, 9, "Natelus"},
-		{"Player2 should be the first to attack with speed higher than player 1, luck should be ignored", 0, 0, 9, 10, "Boar"},
+		{"Player1 should be the first to attack with speed equal to player 2, and luck higher than player 2", 0, 0, 10, 9, "Natelus"},
+		{"Player2 should be the first to attack with speed equal to player 1, and luck higher than player 1", 0, 0, 9, 10, "Boar"},
 		{"When speed and luck are the same for both player player 2 should be the first to attack", 0, 0, 0, 0, "Boar"},
 	}
 
